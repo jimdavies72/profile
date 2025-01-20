@@ -1,0 +1,119 @@
+{
+  "id": "career_history",
+  "type": "SharedSlice",
+  "name": "CareerHistory",
+  "description": "CareerHistory",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "jobs": {
+          "type": "Group",
+          "config": {
+            "label": "Jobs",
+            "repeat": true,
+            "fields": {
+              "company_name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Company Name",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,heading3"
+                }
+              },
+              "location": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Location",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,heading3,strong,em"
+                }
+              },
+              "job_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Job Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "heading3,paragraph,strong,em"
+                }
+              },
+              "job_type": {
+                "type": "Select",
+                "config": {
+                  "label": "Job Type",
+                  "placeholder": "",
+                  "options": [
+                    "Permanent",
+                    "Contract",
+                    "Temp",
+                    "N/A"
+                  ],
+                  "default_value": "Permanent"
+                }
+              },
+              "job_description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Job Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,list-item,o-list-item,strong,em"
+                }
+              },
+              "date_from": {
+                "type": "Date",
+                "config": {
+                  "label": "Date From",
+                  "placeholder": ""
+                }
+              },
+              "date_to": {
+                "type": "Date",
+                "config": {
+                  "label": "Date To",
+                  "placeholder": ""
+                }
+              },
+              "current_job": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Current Job",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+"use client";
+
+import React, { useRef, useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+import { Toaster, toast } from "sonner";
+import ReCAPTCHA from "react-google-recaptcha";
+
+export default function ContactForm({
+  service_id,
+  template_id,
+  public_key,
+  recaptcha_site_key,
+}: {
+  service_id: string;
+  template_id: string;
+  public_key: string;
+  recaptcha_site_key: string;
+}) {
+  const form = useRef<HTMLFormElement>(null);
+  const methods = useForm();
+  const { register, reset, handleSubmit } = methods;
+
+  const [captcha, setCaptcha] = useState<string | null>();
+
+  const sendEmail = () => {
+    if (form.current) {
+      emailjs
+        .sendForm(service_id || "", template_id || "", form.current, {
+          publicKey: public_key || "",
+        })
+        .then(
+          () => {
+            toast.success("Your message has been sent!");
+          },
+          (error) => {
+            toast.error(`An error occured: ${error.text}`);
+          },
+        );
+    } else {
+      console.error("Form element is not defined");
+    }
+  };
+
+  const onSubmit = handleSubmit((data) => {
+    if (data.cc_email.length === 0) {
+      sendEmail();
+    } else {
+        // honey trapped
+        toast.success("Your message has been sent.");
+    }
+
+    reset();
+  });
+
+  return (
+    <div className="flex flex-row gap-4 rounded-lg bg-[#070815] p-4">
+      <FormProvider {...methods}>
+        <form
+          ref={form}
+          onSubmit={(e) => e.preventDefault()}
+          noValidate
+          className="w-full"
+        >
+          <div className="mb-5">
+            <label
+              htmlFor="user_name"
+              className="mb-1 block text-left text-base font-medium text-slate-300"
+            >
+              Full Name *
+            </label>
+            <input
+              type="text"
+              placeholder="John Doe"
+              autoComplete="off"
+              {...register("user_name", {
+                required: {
+                  value: true,
+                  message: "required",
+                },
+              })}
+              className="w-full rounded-sm border border-yellow-400/70 bg-[#070815] px-3 py-1.5 text-base font-medium text-white outline-none focus:border-blue-500/40 focus:shadow-md"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="user_email"
+              className="mb-1 block text-left text-base font-medium text-slate-300"
+            >
+              Email *
+            </label>
+            <input
+              type="email"
+              placeholder="example@domain.com"
+              autoComplete="off"
+              {...register("user_email", {
+                required: {
+                  value: true,
+                  message: "required",
+                },
+              })}
+              className="w-full rounded-sm border border-yellow-400/70 bg-[#070815] px-3 py-1.5 text-base font-medium text-white outline-none focus:border-blue-500/40 focus:shadow-md"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="subject"
+              className="mb-1 block text-left text-base font-medium text-slate-300"
+            >
+              Subject *
+            </label>
+            <input
+              type="text"
+              placeholder="Re: Job Opportunity"
+              autoComplete="off"
+              {...register("subject", {
+                required: {
+                  value: true,
+                  message: "required",
+                },
+              })}
+              className="w-full rounded-sm border border-yellow-400/70 bg-[#070815] px-3 py-1.5 text-base font-medium text-white outline-none focus:border-blue-500/40 focus:shadow-md"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="message"
+              className="mb-1 block text-left text-base font-medium text-slate-300"
+            >
+              Message *
+            </label>
+            <textarea
+              placeholder="Type your message"
+              rows={4}
+              autoComplete="off"
+              {...register("message", {
+                required: {
+                  value: true,
+                  message: "required",
+                },
+              })}
+              className="w-full rounded-sm border border-yellow-400/70 bg-[#070815] px-3 py-1.5 text-base font-medium text-white outline-none focus:border-blue-500/40 focus:shadow-md"
+            />
+          </div>
+
+          {/* honey trap field */}
+          <div className="-z-1 h-0 w-0 opacity-0">
+            <label htmlFor="cc_email">CC Email</label>
+            <input
+              type="text"
+              autoComplete="off"
+              {...register("cc_email")}
+              className="text-black"
+            />
+          </div>
+
+          <ReCAPTCHA
+            className="mb-5"
+            sitekey={recaptcha_site_key}
+            onChange={setCaptcha}
+            theme="dark"
+          />
+
+          <div className="pr-4 text-right">
+            {(captcha && (
+              <button
+                onClick={onSubmit}
+                className="0 inline-flex h-fit w-fit rounded-full border border-blue-100/20 bg-blue-200/10 px-4 py-2 text-blue-200 outline-none ring-yellow-300 transition-colors after:inset-0 after:animate-pulse after:rounded-full after:bg-yellow-100 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:cursor-pointer hover:border-yellow-200/40 hover:text-yellow-300 after:hover:bg-opacity-15 focus:ring-2"
+              >
+                Send Email
+              </button>
+            )) ?? (
+              <button
+                disabled
+                className="inline-flex h-fit w-fit rounded-full border border-gray-100/20 bg-gray-200/10 px-4 py-2 text-gray-700 outline-none"
+              >
+                Send Email
+              </button>
+            )}
+          </div>
+        </form>
+      </FormProvider>
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#070815",
+          },
+        }}
+        richColors
+        expand={false}
+        position="bottom-right"
+      />
+    </div>
+  );
+}

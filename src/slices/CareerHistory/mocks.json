@@ -1,0 +1,128 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Select"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Voluptate et fugiat labore cupidatat tempor cillum quis ad laborum officia proident occaecat ullamco ex. Consequat sunt voluptate do eiusmod fugiat esse reprehenderit fugiat duis in ipsum eiusmod."
+						}
+					}
+				]
+			},
+			"jobs": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"job_title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aliquip irure laborum incididunt consectetur proident qui do duis officia aliquip aliquip cupidatat fugiat. Commodo laborum enim consectetur enim nulla velit ad aliquip magna proident occaecat."
+											}
+										}
+									]
+								}
+							],
+							[
+								"company_name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Non pariatur consectetur reprehenderit cupidatat. Et cupidatat culpa commodo irure. Sit aliquip do sint esse proident consequat ullamco cillum anim id laboris id eu est."
+											}
+										}
+									]
+								}
+							],
+							[
+								"job_type",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "N/A",
+									"type": "Select"
+								}
+							],
+							[
+								"location",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ipsum cillum sint adipisicing qui ad laborum fugiat anim nostrud mollit elit. Commodo mollit officia magna laboris adipisicing do irure. Exercitation magna officia adipisicing occaecat enim."
+											}
+										}
+									]
+								}
+							],
+							[
+								"job_description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Tempor fugiat Lorem voluptate nostrud do mollit do ea quis excepteur commodo Lorem tempor pariatur aliquip."
+											}
+										}
+									]
+								}
+							],
+							[
+								"date_from",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2018-03-10"
+								}
+							],
+							[
+								"date_to",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2018-08-06"
+								}
+							],
+							[
+								"current_job",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
