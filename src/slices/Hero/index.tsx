@@ -25,14 +25,28 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <StarGrid />
 
         {isFilled.richText(slice.primary.intro_heading) && (
-          <div className="text-balance text-left px-[20%] text-2xl font-medium md:text-4xl">
+          <div className="text-balance px-[20%] text-left text-2xl font-medium md:text-4xl">
             <PrismicText field={slice.primary.intro_heading} />
           </div>
         )}
 
         {isFilled.richText(slice.primary.heading) && (
-          <div className="text-balance text-center text-5xl mt-8 font-medium md:text-7xl">
-            <PrismicRichText field={slice.primary.heading} />
+          <div className="mt-8 text-balance text-center text-5xl font-medium md:text-7xl">
+            <PrismicRichText
+              field={slice.primary.heading}
+              components={{
+                heading1: ({ children }) => (
+                  <h2 className="text-balance text-center text-5xl font-medium md:text-7xl">
+                    {children}
+                  </h2>
+                ),
+                em: ({ children }) => (
+                  <em className="bg-gradient-to-b from-yellow-100 to-yellow-500 bg-clip-text not-italic text-transparent">
+                    {children}
+                  </em>
+                ),
+              }}
+            />
           </div>
         )}
 
@@ -43,15 +57,18 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         )}
 
         {isFilled.link(slice.primary.button_link) && (
-          <ButtonLink className="mt-8 " field={slice.primary.button_link}>
+          <ButtonLink className="mt-8" field={slice.primary.button_link}>
             {slice.primary.button_label}
           </ButtonLink>
         )}
 
         {isFilled.image(slice.primary.image) && (
-          <div className="glass-container mt-16 w-fit">
-            <div className="absolute inset-0 -z-10 bg-blue-500/30 blur-2xl filter" />
-            <PrismicNextImage className="rounded-lg" field={slice.primary.image} />
+          <div className="hero__image glass-container mt-16 w-fit">
+            <div className="hero__glow absolute inset-0 -z-10 bg-blue-500/30 blur-2xl filter" />
+            <PrismicNextImage
+              className="rounded-lg"
+              field={slice.primary.image}
+            />
           </div>
         )}
       </div>

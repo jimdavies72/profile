@@ -21,15 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={dmSans.variable} >
       <body className="bg-[#070815] text-white">
         <Header />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
-        </body>
+      </body>
     </html>
   );
 }

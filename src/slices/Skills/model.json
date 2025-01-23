@@ -1,0 +1,123 @@
+{
+  "id": "skills",
+  "type": "SharedSlice",
+  "name": "Skills",
+  "description": "Skills",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "skill": {
+          "type": "Group",
+          "config": {
+            "label": "Skills",
+            "repeat": true,
+            "fields": {
+              "skill_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Skill Name",
+                  "placeholder": ""
+                }
+              },
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon",
+                  "placeholder": "The icon that represents the skill",
+                  "options": [
+                    "node",
+                    "javascript",
+                    "react",
+                    "nextjs",
+                    "csharp",
+                    "typescript",
+                    "python",
+                    "npm",
+                    "mongodb",
+                    "mysql",
+                    "json",
+                    "xml",
+                    "csv",
+                    "css",
+                    "tailwind",
+                    "vscode",
+                    "terminal",
+                    "netlify",
+                    "heroku",
+                    "vercel",
+                    "jira",
+                    "confluence",
+                    "github",
+                    "prismic",
+                    "softskill",
+                    "html"
+                  ]
+                }
+              },
+              "experience_level": {
+                "type": "Number",
+                "config": {
+                  "label": "Experience Level",
+                  "placeholder": "Experience score out of 5"
+                }
+              },
+              "show": {
+                "type": "Boolean",
+                "config": {
+                  "label": "show",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
+              },
+              "icon_colour": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon Colour",
+                  "placeholder": "Text colour of the displayed Icon",
+                  "options": [
+                    "white",
+                    "blue",
+                    "red",
+                    "green",
+                    "orange",
+                    "gray",
+                    "yellow",
+                    "purple",
+                    "sky"
+                  ],
+                  "default_value": "white"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

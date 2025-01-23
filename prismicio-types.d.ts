@@ -62,6 +62,7 @@ export type FooterSettingsDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SkillsSlice
   | CareerHistorySlice
   | ShowcaseSlice
   | ContactMeSlice
@@ -493,7 +494,7 @@ export interface HeroSliceDefaultPrimary {
    * Heading field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Gold text Italic
    * - **API ID Path**: hero.default.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -805,6 +806,163 @@ export type ShowcaseSlice = prismic.SharedSlice<
   ShowcaseSliceVariation
 >;
 
+/**
+ * Item in *Skills → Default → Primary → Skills*
+ */
+export interface SkillsSliceDefaultPrimarySkillItem {
+  /**
+   * Skill Name field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.skill[].skill_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skill_name: prismic.KeyTextField;
+
+  /**
+   * Icon field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: The icon that represents the skill
+   * - **API ID Path**: skills.default.primary.skill[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<
+    | "node"
+    | "javascript"
+    | "react"
+    | "nextjs"
+    | "csharp"
+    | "typescript"
+    | "python"
+    | "npm"
+    | "mongodb"
+    | "mysql"
+    | "json"
+    | "xml"
+    | "csv"
+    | "css"
+    | "tailwind"
+    | "vscode"
+    | "terminal"
+    | "netlify"
+    | "heroku"
+    | "vercel"
+    | "jira"
+    | "confluence"
+    | "github"
+    | "prismic"
+    | "softskill"
+    | "html"
+  >;
+
+  /**
+   * Experience Level field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Experience score out of 5
+   * - **API ID Path**: skills.default.primary.skill[].experience_level
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  experience_level: prismic.NumberField;
+
+  /**
+   * show field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: skills.default.primary.skill[].show
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show: prismic.BooleanField;
+
+  /**
+   * Icon Colour field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Text colour of the displayed Icon
+   * - **Default Value**: white
+   * - **API ID Path**: skills.default.primary.skill[].icon_colour
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon_colour: prismic.SelectField<
+    | "white"
+    | "blue"
+    | "red"
+    | "green"
+    | "orange"
+    | "gray"
+    | "yellow"
+    | "purple"
+    | "sky",
+    "filled"
+  >;
+}
+
+/**
+ * Primary content in *Skills → Default → Primary*
+ */
+export interface SkillsSliceDefaultPrimary {
+  /**
+   * Heading field in *Skills → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *Skills → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Skills field in *Skills → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.skill[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  skill: prismic.GroupField<Simplify<SkillsSliceDefaultPrimarySkillItem>>;
+}
+
+/**
+ * Default variation for Skills Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SkillsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Skills*
+ */
+type SkillsSliceVariation = SkillsSliceDefault;
+
+/**
+ * Skills Shared Slice
+ *
+ * - **API ID**: `skills`
+ * - **Description**: Skills
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSlice = prismic.SharedSlice<"skills", SkillsSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -859,6 +1017,11 @@ declare module "@prismicio/client" {
       ShowcaseSliceVariation,
       ShowcaseSliceDefault,
       ShowcaseSliceReverse,
+      SkillsSlice,
+      SkillsSliceDefaultPrimarySkillItem,
+      SkillsSliceDefaultPrimary,
+      SkillsSliceVariation,
+      SkillsSliceDefault,
     };
   }
 }

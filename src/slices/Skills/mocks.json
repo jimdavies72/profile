@@ -1,0 +1,172 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Here are a list of my skills and experience",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"skill": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"skill_name",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Node.JS"
+								}
+							],
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "softskill",
+									"type": "Select"
+								}
+							],
+							[
+								"experience_level",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Number",
+									"value": "3"
+								}
+							],
+							[
+								"show",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							],
+							[
+								"icon_colour",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "white",
+									"type": "Select"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"skill_name",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "JavaScript"
+								}
+							],
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "javascript",
+									"type": "Select"
+								}
+							],
+							[
+								"experience_level",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Number",
+									"value": "3"
+								}
+							],
+							[
+								"show",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"icon_colour",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "white",
+									"type": "Select"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"skill_name",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "React.JS"
+								}
+							],
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "typescript",
+									"type": "Select"
+								}
+							],
+							[
+								"experience_level",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Number",
+									"value": "3"
+								}
+							],
+							[
+								"show",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"icon_colour",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "white",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Skills and Experience",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

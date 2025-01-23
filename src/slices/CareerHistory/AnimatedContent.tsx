@@ -21,7 +21,7 @@ export default function AnimatedContent({
           <StarGrid />
 
           {isFilled.richText(slice.primary.heading) && (
-            <div className="mt-8 text-balance text-center text-5xl font-medium md:text-7xl">
+            <div className="text-balance text-center text-5xl font-medium md:text-7xl">
               <PrismicRichText field={slice.primary.heading} />
             </div>
           )}
@@ -75,7 +75,7 @@ export default function AnimatedContent({
                     <PrismicRichText field={item.job_title} />
                   </div>
                 )}
-                <div className="text-sm ">
+                <div className="text-sm">
                   <PrismicRichText field={item.job_description} />
                 </div>
               </div>

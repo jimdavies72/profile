@@ -25,7 +25,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Heading",
-            "placeholder": "",
+            "placeholder": "Gold text Italic",
             "allowTargetBlank": true,
             "multi": "heading1,em"
           }
