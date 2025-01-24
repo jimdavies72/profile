@@ -1,4 +1,4 @@
-import SiteLogo from "@/components/SiteLogo";
+import SiteLogo from "@/components/glisenLogo";
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
@@ -10,18 +10,16 @@ export default async function Footer() {
 
   return (
     <footer className="flex flex-col items-center justify-between gap-6 border-t border-slate-600 px-8 py-7 md:flex-row">
-      <Link href="/">  
+      <Link href="/">
         <SiteLogo />
-        <span className="sr-only">
-          {settings.data.site_title}
-        </span>
+        <span className="sr-only">{settings.data.site_title}</span>
       </Link>
-      <nav aria-label="Footer" className="flex gap-6 flex-col md:flex-row">
-        <ul className="flex gap-6 flex-col md:flex-row items-center">
+      <nav aria-label="Footer" className="flex flex-col gap-6 md:flex-row">
+        <ul className="flex flex-col items-center gap-6 md:flex-row">
           {settings.data.navigation.map((item) => (
             <li key={item.label}>
-              <PrismicNextLink 
-                field={item.link} 
+              <PrismicNextLink
+                field={item.link}
                 className="inline-flex min-h-11 items-center"
               >
                 {item.label}
@@ -29,12 +27,12 @@ export default async function Footer() {
             </li>
           ))}
         </ul>
-        <ul className="flex gap-6 flex-col md:flex-row items-center">
+        <ul className="flex flex-col items-center gap-6 md:flex-row">
           {footerSettings.data.links.map((item) => (
             <li key={item.label}>
-              <PrismicNextLink 
+              <PrismicNextLink
                 field={item.link}
-                className="inline-flex min-h-11 items-center" 
+                className="inline-flex min-h-11 items-center"
               >
                 {item.label}
               </PrismicNextLink>
@@ -43,5 +41,5 @@ export default async function Footer() {
         </ul>
       </nav>
     </footer>
-  )
+  );
 }
