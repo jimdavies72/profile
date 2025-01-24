@@ -7,6 +7,7 @@ export const components = {
   career_history: dynamic(() => import("./CareerHistory")),
   contact_me: dynamic(() => import("./ContactMe")),
   hero: dynamic(() => import("./Hero")),
+  integrations: dynamic(() => import("./Integrations")),
   rich_text: dynamic(() => import("./RichText")),
   showcase: dynamic(() => import("./Showcase")),
   skills: dynamic(() => import("./Skills")),

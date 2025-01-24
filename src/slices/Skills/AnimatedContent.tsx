@@ -42,41 +42,43 @@ import { VscVscode } from "react-icons/vsc";
 import { BiLogoNetlify, BiLogoHeroku } from "react-icons/bi";
 import { useCallback, useEffect, useState } from "react";
 
-const icons = {
-  node: <FaNodeJs />,
-  javascript: <IoLogoJavascript />,
-  react: <FaReact />,
-  nextjs: <TbBrandNextjs />,
-  csharp: <TbBrandCSharp />,
-  typescript: <SiTypescript />,
-  python: <FaPython />,
-  npm: <SiNpm />,
-  mongodb: <SiMongodb />,
-  mysql: <SiMysql />,
-  json: <SiJson />,
-  softskill: <FaHand />,
-  xml: <LuCodeXml />,
-  csv: <TbCsv />,
-  html: <FaHtml5 />,
-  css: <FaCss3Alt />,
-  tailwind: <RiTailwindCssFill />,
-  vscode: <VscVscode />,
-  terminal: <IoTerminal />,
-  netlify: <BiLogoNetlify />,
-  heroku: <BiLogoHeroku />,
-  vercel: <SiVercel />,
-  jira: <SiJira />,
-  trello: <SiTrello />,
-  confluence: <SiConfluence />,
-  github: <FaGithub />,
-  prismic: <SiPrismic />,
-};
 
 export default function AnimatedContent({
   slice,
 }: {
   slice: Content.SkillsSlice;
 }) {
+  
+  const icons = {
+    node: <FaNodeJs />,
+    javascript: <IoLogoJavascript />,
+    react: <FaReact />,
+    nextjs: <TbBrandNextjs />,
+    csharp: <TbBrandCSharp />,
+    typescript: <SiTypescript />,
+    python: <FaPython />,
+    npm: <SiNpm />,
+    mongodb: <SiMongodb />,
+    mysql: <SiMysql />,
+    json: <SiJson />,
+    softskill: <FaHand />,
+    xml: <LuCodeXml />,
+    csv: <TbCsv />,
+    html: <FaHtml5 />,
+    css: <FaCss3Alt />,
+    tailwind: <RiTailwindCssFill />,
+    vscode: <VscVscode />,
+    terminal: <IoTerminal />,
+    netlify: <BiLogoNetlify />,
+    heroku: <BiLogoHeroku />,
+    vercel: <SiVercel />,
+    jira: <SiJira />,
+    trello: <SiTrello />,
+    confluence: <SiConfluence />,
+    github: <FaGithub />,
+    prismic: <SiPrismic />,
+  };
+
   const [scrollSize, setScrollSize] = useState(5);
 
   useEffect(() => {
