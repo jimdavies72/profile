@@ -1,4 +1,4 @@
-import SiteLogo from "@/components/glisenLogo";
+import SiteLogo from "@/components/SiteLogo";
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";

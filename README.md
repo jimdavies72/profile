@@ -20,3 +20,11 @@ View the end product here: TBA
 - GSAP Animations
 - Deployment to Vercel
 
+### To-do List
+
+- [ ] Timeline - Prose on card breaks the styling - FIX
+- [ ] GSAP
+- [ ] Plumb in the ReCAPTCHA on contact form
+- [ ] Site Logo
+- [ ] Content
+

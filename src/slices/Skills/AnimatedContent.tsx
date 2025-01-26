@@ -41,6 +41,7 @@ import { VscVscode } from "react-icons/vsc";
 
 import { BiLogoNetlify, BiLogoHeroku } from "react-icons/bi";
 import { useCallback, useEffect, useState } from "react";
+import Score from "@/components/Score";
 
 
 export default function AnimatedContent({
@@ -125,22 +126,22 @@ export default function AnimatedContent({
   }, [emblaApi]);
 
   return (
-    <div className="relative">
-        {isFilled.richText(slice.primary.heading) && (
-          <div className="skills__heading text-balance text-center text-5xl font-medium md:text-7xl">
-            <PrismicRichText field={slice.primary.heading} />
-          </div>
-        )}
+    <div className="relative grid place-items-center text-center">
+      {isFilled.richText(slice.primary.heading) && (
+        <div className="skills__heading text-balance text-center text-5xl font-medium md:text-7xl">
+          <PrismicRichText field={slice.primary.heading} />
+        </div>
+      )}
 
-        {isFilled.richText(slice.primary.body) && (
-          <div className="skills__body mx-auto mb-16 mt-6 max-w-md text-balance text-center text-slate-300">
-            <PrismicRichText field={slice.primary.body} />
-          </div>
-        )}
+      {isFilled.richText(slice.primary.body) && (
+        <div className="skills__body mx-auto mb-16 mt-6 max-w-md text-balance text-center text-slate-300">
+          <PrismicRichText field={slice.primary.body} />
+        </div>
+      )}
 
       <div
         ref={emblaRef}
-        className="skills__container max-w-4xl cursor-grabbing overflow-hidden"
+        className="skills__container md:max-w-4xl cursor-grabbing overflow-hidden"
       >
         <ul className="flex flex-row">
           {slice.primary.skill
@@ -152,15 +153,15 @@ export default function AnimatedContent({
               >
                 <div
                   style={{ color: item.icon_colour }}
-                  className={`mb-6 w-fit text-6xl`}
+                  className="mb-6 w-fit text-6xl"
                 >
                   {item.icon && icons[item.icon]}
                 </div>
                 <div className="mb-3 text-slate-300 md:text-xl">
                   {item.skill_name}
                 </div>
-                <div className="text-left text-sm font-semibold text-slate-500">
-                  {item.experience_level} / 5
+                <div className="mt-2 text-left">
+                  <Score score={item.experience_level || 1} maxScore={5} />
                 </div>
               </li>
             ))}

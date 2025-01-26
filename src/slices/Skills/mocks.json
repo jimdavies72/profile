@@ -50,7 +50,7 @@
 								"show",
 								{
 									"__TYPE__": "BooleanContent",
-									"value": true
+									"value": false
 								}
 							],
 							[
@@ -94,7 +94,7 @@
 								"show",
 								{
 									"__TYPE__": "BooleanContent",
-									"value": false
+									"value": true
 								}
 							],
 							[

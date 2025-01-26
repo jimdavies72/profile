@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type ArticleDocumentDataSlicesSlice = RichTextSlice;
+type ArticleDocumentDataSlicesSlice = LinksListSlice | RichTextSlice;
 
 /**
  * Content for Article documents
@@ -859,6 +859,86 @@ export type IntegrationsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *LinksList → Default → Primary → Links*
+ */
+export interface LinksListSliceDefaultPrimaryLinksItem {
+  /**
+   * Link field in *LinksList → Default → Primary → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: links_list.default.primary.links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Label field in *LinksList → Default → Primary → Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Link Label
+   * - **API ID Path**: links_list.default.primary.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link Type field in *LinksList → Default → Primary → Links*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: links_list.default.primary.links[].link_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  link_type: prismic.SelectField<"image" | "font">;
+}
+
+/**
+ * Primary content in *LinksList → Default → Primary*
+ */
+export interface LinksListSliceDefaultPrimary {
+  /**
+   * Links field in *LinksList → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: links_list.default.primary.links[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<LinksListSliceDefaultPrimaryLinksItem>>;
+}
+
+/**
+ * Default variation for LinksList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LinksListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LinksListSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LinksList*
+ */
+type LinksListSliceVariation = LinksListSliceDefault;
+
+/**
+ * LinksList Shared Slice
+ *
+ * - **API ID**: `links_list`
+ * - **Description**: LinksList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LinksListSlice = prismic.SharedSlice<
+  "links_list",
+  LinksListSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -1158,7 +1238,7 @@ export interface SkillsSliceDefaultPrimarySkillItem {
   experience_level: prismic.NumberField;
 
   /**
-   * show field in *Skills → Default → Primary → Skills*
+   * Show field in *Skills → Default → Primary → Skills*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -1310,6 +1390,11 @@ declare module "@prismicio/client" {
       IntegrationsSliceDefaultPrimary,
       IntegrationsSliceVariation,
       IntegrationsSliceDefault,
+      LinksListSlice,
+      LinksListSliceDefaultPrimaryLinksItem,
+      LinksListSliceDefaultPrimary,
+      LinksListSliceVariation,
+      LinksListSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

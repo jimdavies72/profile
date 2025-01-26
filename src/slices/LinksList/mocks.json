@@ -1,0 +1,47 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"links": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "myself",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "90d89d88-8354-4d27-90e5-fdb1122b4ae0",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "blank"
+									}
+								}
+							],
+							[
+								"link_type",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "image",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
