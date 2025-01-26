@@ -21,6 +21,20 @@
           "single": "heading1"
         }
       },
+      "article_type": {
+        "type": "Select",
+        "config": {
+          "label": "Article Type",
+          "placeholder": "Displayed under the heading",
+          "options": [
+            "News Article",
+            "Case Study",
+            "Development Project",
+            "Portfolio Article"
+          ],
+          "default_value": "News Article"
+        }
+      },
       "body": {
         "type": "StructuredText",
         "config": {

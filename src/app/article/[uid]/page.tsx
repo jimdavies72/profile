@@ -18,11 +18,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
   return (
     <Bounded as="article">
-      <div className="grid relative place-items-center text-center">
+      <div className="relative grid place-items-center text-center">
         <StarGrid />
         <h1 className="text-7xl font-medium">
           <PrismicText field={page.data.heading} />
-          <p className="text-lg text-yellow-500">Article</p>
+          <div className="text-lg text-yellow-500">
+            {page.data.article_type}
+          </div>
         </h1>
 
         <p className="mb-4 mt-8 max-w-xl text-lg text-slate-300">

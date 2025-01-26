@@ -16,7 +16,6 @@ export default function AnimatedContent({
 }) {
   return (
     <React.Fragment>
-      <Bounded>
         <div className="relative grid place-items-center text-center">
           <StarGrid />
 
@@ -82,7 +81,6 @@ export default function AnimatedContent({
             </div>
           ))}
         </div>
-      </Bounded>
     </React.Fragment>
   );
 }

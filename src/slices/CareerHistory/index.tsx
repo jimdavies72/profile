@@ -15,13 +15,13 @@ export type CareerHistoryProps =
  */
 const CareerHistory = ({ slice }: CareerHistoryProps): JSX.Element => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="text-center"
     >
       <AnimatedContent slice={slice} />
-    </section>
+    </Bounded>
   );
 };
 

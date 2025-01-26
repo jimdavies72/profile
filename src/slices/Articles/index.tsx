@@ -46,7 +46,7 @@ const Articles = async ({ slice }: ArticlesProps): Promise<JSX.Element> => {
             article && (
               <div
                 key={article.id}
-                className="relative grid gap-4 opacity-85 transition-opacity duration-300 hover:cursor-pointer hover:opacity-100 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
+                className="relative gap-4 grid opacity-85 transition-opacity duration-300 hover:cursor-pointer hover:opacity-100 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
               >
                 <div className="col-span-1 flex flex-col justify-center gap-4">
                   <div className="text-4xl">
@@ -60,10 +60,11 @@ const Articles = async ({ slice }: ArticlesProps): Promise<JSX.Element> => {
                     document={article}
                     className="after:absolute after:inset-0 hover:underline"
                   >
-                    Read <PrismicText field={article.data.heading} /> article
-                    &gt;
+                    Read <PrismicText field={article.data.heading} />
+                    {" "}Article{" "}&gt;
                   </PrismicNextLink>
                 </div>
+
                 <PrismicNextImage
                   field={article.data.image}
                   quality={100}

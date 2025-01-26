@@ -22,6 +22,21 @@ interface ArticleDocumentData {
   heading: prismic.TitleField;
 
   /**
+   * Article Type field in *Article*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Displayed under the heading
+   * - **Default Value**: News Article
+   * - **API ID Path**: article.article_type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  article_type: prismic.SelectField<
+    "News Article" | "Case Study" | "Development Project" | "Portfolio Article",
+    "filled"
+  >;
+
+  /**
    * Description field in *Article*
    *
    * - **Field Type**: Rich Text
