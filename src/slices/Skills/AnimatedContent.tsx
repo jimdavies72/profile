@@ -151,7 +151,7 @@ export default function AnimatedContent({
             .map((item) => (
               <li
                 key={item.skill_name}
-                className="mx-2 flex flex-col rounded-sm border border-blue-100/60 bg-black pl-4 pr-4 pt-2 text-center"
+                className="mx-2 flex flex-col rounded-sm border border-blue-100/60 bg-black p-4 text-center"
               >
                 <div
                   style={{ color: item.icon_colour }}
@@ -159,7 +159,7 @@ export default function AnimatedContent({
                 >
                   {item.icon && icons[item.icon]}
                 </div>
-                <div className="mb-3 text-slate-300 md:text-xl">
+                <div className="whitespace-nowrap text-lg md:text-xl mb-3 text-slate-300">
                   {item.skill_name}
                 </div>
                 <div className="mt-2 text-left">
