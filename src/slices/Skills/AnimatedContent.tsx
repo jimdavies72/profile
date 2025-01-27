@@ -43,13 +43,11 @@ import { BiLogoNetlify, BiLogoHeroku } from "react-icons/bi";
 import { useCallback, useEffect, useState } from "react";
 import Score from "@/components/Score";
 
-
 export default function AnimatedContent({
   slice,
 }: {
   slice: Content.SkillsSlice;
 }) {
-  
   const icons = {
     node: <FaNodeJs />,
     javascript: <IoLogoJavascript />,
@@ -81,6 +79,7 @@ export default function AnimatedContent({
   };
 
   const [scrollSize, setScrollSize] = useState(5);
+  const [scrollDelay, setScrollDelay] = useState(5000);
 
   useEffect(() => {
     const handleDeviceDetection = () => {
@@ -92,10 +91,13 @@ export default function AnimatedContent({
 
       if (isMobile) {
         setScrollSize(1);
+        setScrollDelay(1500);
       } else if (isTablet) {
-        setScrollSize(1);
+        setScrollSize(3);
+        setScrollDelay(3000);
       } else {
         setScrollSize(5);
+        setScrollDelay(5000);
       }
     };
 
@@ -114,7 +116,7 @@ export default function AnimatedContent({
       skipSnaps: false,
       slidesToScroll: scrollSize,
     },
-    [Autoplay({ playOnInit: true, delay: 7000 })],
+    [Autoplay({ playOnInit: true, delay: scrollDelay })],
   );
 
   const scrollPrev = useCallback(() => {
@@ -141,7 +143,7 @@ export default function AnimatedContent({
 
       <div
         ref={emblaRef}
-        className="skills__container md:max-w-4xl cursor-grabbing overflow-hidden"
+        className="skills__container container cursor-grabbing overflow-hidden md:max-w-4xl"
       >
         <ul className="flex flex-row">
           {slice.primary.skill
@@ -149,7 +151,7 @@ export default function AnimatedContent({
             .map((item) => (
               <li
                 key={item.skill_name}
-                className="mx-2 flex min-w-fit flex-col rounded-sm border border-blue-100/60 bg-black p-4 text-center"
+                className="mx-2 flex flex-col rounded-sm border border-blue-100/60 bg-black pl-4 pr-4 pt-2 text-center"
               >
                 <div
                   style={{ color: item.icon_colour }}
