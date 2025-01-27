@@ -24,7 +24,8 @@ View the end product here: TBA
 
 - [ ] Timeline - Prose on card breaks the styling - FIX
 - [ ] GSAP
-- [ ] Plumb in the ReCAPTCHA on contact form
-- [ ] Site Logo
+- [ ] Swap Glisten Icon for GitHub on Tech Stack
+- [X] Site Logo
 - [ ] Content
+- [ ] Credits - Formatting on mobile is skew
 
