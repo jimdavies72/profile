@@ -10,18 +10,14 @@ export default function ContactForm({
   service_id,
   template_id,
   public_key,
-  recaptcha_site_key,
 }: {
   service_id: string;
   template_id: string;
   public_key: string;
-  recaptcha_site_key: string;
 }) {
   const form = useRef<HTMLFormElement>(null);
   const methods = useForm();
   const { register, reset, handleSubmit } = methods;
-
-  const [captcha, setCaptcha] = useState<string | null>();
 
   const sendEmail = () => {
     if (form.current) {
@@ -46,8 +42,8 @@ export default function ContactForm({
     if (data.cc_email.length === 0) {
       sendEmail();
     } else {
-        // honey trapped
-        toast.success("Your message has been sent.");
+      // honey trapped
+      toast.success("Your message has been sent.");
     }
 
     reset();
@@ -157,29 +153,13 @@ export default function ContactForm({
             />
           </div>
 
-          <ReCAPTCHA
-            className="mb-5"
-            sitekey={recaptcha_site_key}
-            onChange={setCaptcha}
-            theme="dark"
-          />
-
           <div className="pr-4 text-right">
-            {(captcha && (
-              <button
-                onClick={onSubmit}
-                className="0 inline-flex h-fit w-fit rounded-full border border-blue-100/20 bg-blue-200/10 px-4 py-2 text-blue-200 outline-none ring-yellow-300 transition-colors after:inset-0 after:animate-pulse after:rounded-full after:bg-yellow-100 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:cursor-pointer hover:border-yellow-200/40 hover:text-yellow-300 after:hover:bg-opacity-15 focus:ring-2"
-              >
-                Send Email
-              </button>
-            )) ?? (
-              <button
-                disabled
-                className="inline-flex h-fit w-fit rounded-full border border-gray-100/20 bg-gray-200/10 px-4 py-2 text-gray-700 outline-none"
-              >
-                Send Email
-              </button>
-            )}
+            <button
+              onClick={onSubmit}
+              className="0 inline-flex h-fit w-fit rounded-full border border-blue-100/20 bg-blue-200/10 px-4 py-2 text-blue-200 outline-none ring-yellow-300 transition-colors after:inset-0 after:animate-pulse after:rounded-full after:bg-yellow-100 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:cursor-pointer hover:border-yellow-200/40 hover:text-yellow-300 after:hover:bg-opacity-15 focus:ring-2"
+            >
+              Send Email
+            </button>
           </div>
         </form>
       </FormProvider>

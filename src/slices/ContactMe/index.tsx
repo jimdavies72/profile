@@ -42,9 +42,6 @@ const ContactMe = ({ slice }: ContactMeProps): JSX.Element => {
               service_id={process.env.EMAILJS_SERVICE_ID || ""}
               template_id={process.env.EMAILJS_TEMPLATE_ID || ""}
               public_key={process.env.EMAILJS_PUBLIC_KEY || ""}
-              recaptcha_site_key={
-                process.env.RECAPTCHA_SITE_KEY || ""
-              }
             />
           ) : (
             <div className="flex w-full justify-center flex-row gap-4 rounded-lg bg-[#070815] p-4 text-slate-300">
