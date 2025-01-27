@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^3.10.0",
     "@prismicio/client": "^7.14.0",
     "@prismicio/next": "^1.7.1",
@@ -28,6 +29,7 @@
     "embla-carousel": "^8.5.2",
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
+    "gsap": "^3.12.7",
     "lucide-react": "^0.471.1",
     "next": "^15.0.2",
     "react": "^18.3.1",

@@ -90,7 +90,7 @@ export default function AnimatedContent({
         /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
 
       if (isMobile) {
-        setScrollSize(1);
+        setScrollSize(2);
         setScrollDelay(1500);
       } else if (isTablet) {
         setScrollSize(3);
