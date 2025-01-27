@@ -43,7 +43,7 @@ const ContactMe = ({ slice }: ContactMeProps): JSX.Element => {
               template_id={process.env.EMAILJS_TEMPLATE_ID || ""}
               public_key={process.env.EMAILJS_PUBLIC_KEY || ""}
               recaptcha_site_key={
-                process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""
+                process.env.RECAPTCHA_SITE_KEY || ""
               }
             />
           ) : (
