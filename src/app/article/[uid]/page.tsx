@@ -8,6 +8,7 @@ import { components } from "@/slices";
 import Bounded from "@/components/Bounded";
 import StarGrid from "@/components/StarGrid";
 import { PrismicNextImage } from "@prismicio/next";
+import { asText } from "@prismicio/client";
 
 type Params = { uid: string };
 
@@ -54,7 +55,7 @@ export async function generateMetadata({
   const page = await client.getByUID("article", uid).catch(() => notFound());
 
   return {
-    title: page.data.meta_title,
+    title: `${ page.data.meta_title || asText(page.data.heading) + " Article" }`,
     description: page.data.meta_description,
   };
 }
