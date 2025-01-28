@@ -5,6 +5,7 @@ import { PrismicRichText, PrismicText } from "@prismicio/react";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 import {
   FaNodeJs,
@@ -79,7 +80,6 @@ export default function AnimatedContent({
   };
 
   const [scrollSize, setScrollSize] = useState(5);
-  const [scrollDelay, setScrollDelay] = useState(5000);
 
   useEffect(() => {
     const handleDeviceDetection = () => {
@@ -91,13 +91,10 @@ export default function AnimatedContent({
 
       if (isMobile) {
         setScrollSize(2);
-        setScrollDelay(1500);
       } else if (isTablet) {
         setScrollSize(3);
-        setScrollDelay(3000);
       } else {
         setScrollSize(5);
-        setScrollDelay(5000);
       }
     };
 
@@ -116,7 +113,13 @@ export default function AnimatedContent({
       skipSnaps: false,
       slidesToScroll: scrollSize,
     },
-    [Autoplay({ playOnInit: true, delay: scrollDelay })],
+    [
+      AutoScroll({
+        playOnInit: true,
+        speed: 1,
+        stopOnInteraction: false
+      }),
+    ],
   );
 
   const scrollPrev = useCallback(() => {
