@@ -4,6 +4,7 @@ import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 
 import useEmblaCarousel from "embla-carousel-react";
+
 import AutoScroll from "embla-carousel-auto-scroll";
 
 import {
