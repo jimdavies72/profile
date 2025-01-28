@@ -1,4 +1,3 @@
-import Bounded from "@/components/Bounded";
 import type { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import {
@@ -6,6 +5,8 @@ import {
   SliceComponentProps,
   JSXMapSerializer,
 } from "@prismicio/react";
+
+import Bounded from "@/components/Bounded";
 
 const components: JSXMapSerializer = {
   hyperlink: ({ node, children }) => {

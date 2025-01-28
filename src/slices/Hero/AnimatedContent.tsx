@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
@@ -9,6 +7,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import ButtonLink from "@/components/ButtonLink";
 import StarGrid from "@/components/StarGrid";
 
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
@@ -89,7 +88,7 @@ export default function AnimatedContent({
       )}
 
       {isFilled.richText(slice.primary.heading) && (
-        <div className="hero__heading mt-8 text-balance text-center text-5xl font-medium opacity-0 md:text-7xl">
+        <div className="hero__heading mt-4 text-balance text-center text-5xl font-medium opacity-0 md:text-7xl">
           <PrismicRichText
             field={slice.primary.heading}
             components={{

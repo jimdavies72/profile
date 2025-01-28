@@ -1,18 +1,25 @@
-import React from "react";
-import { Content } from "@prismicio/client";
+"use client";
 
+import React from "react";
+import clsx from "clsx";
+
+import { Content } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
+
+import StylizedLogoMark from "./StylizedLogoMark";
 import { RiNextjsLine, RiTailwindCssFill, RiVercelFill } from "react-icons/ri";
 import { SiPrismic, SiNpm, SiTypescript } from "react-icons/si";
-import StylizedLogoMark from "./StylizedLogoMark";
-import clsx from "clsx";
-import { PrismicNextLink } from "@prismicio/next";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 
 export default function AnimatedContent({
   slice,
 }: {
   slice: Content.IntegrationsSlice;
 }) {
-
   const icons = {
     nextjs: <RiNextjsLine />,
     tailwind: <RiTailwindCssFill />,
@@ -22,8 +29,86 @@ export default function AnimatedContent({
     typescript: <SiTypescript />,
   };
 
+  const container = useRef(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  gsap.registerPlugin(useGSAP);
+
+  useGSAP(
+    () => {
+      if (prefersReducedMotion) {
+        gsap.set(container.current, { opacity: 1 });
+        return;
+      }
+
+      const tl = gsap.timeline({
+        repeat: -1,
+        defaults: { ease: "power2.inOut" },
+      });
+
+      tl.to(".pulsing-logo", {
+        keyframes: [
+          {
+            filter: "brightness(2)",
+            opactity: 1,
+            duration: 0.4,
+            ease: "power2.in",
+          },
+          {
+            filter: "brightness(1)",
+            opactity: 0.7,
+            duration: 0.9,
+          },
+        ],
+      });
+
+      tl.to(
+        ".signal-line",
+        {
+          keyframes: [
+            { backgroundPosition: "0% 0%" },
+            {
+              backgroundPosition: "100% 100%",
+              stagger: {
+                from: "center",
+                each: 0.3,
+              },
+              duration: 1,
+            },
+          ],
+        },
+        "-=1.4",
+      );
+
+      tl.to(
+        ".pulsing-icon",
+        {
+          keyframes: [
+            {
+              opacity: 1,
+              stagger: {
+                from: "center",
+                each: 0.3,
+              },
+              duration: 1,
+            },
+            {
+              opacity: 0.4,
+              duration: 1,
+              stagger: {
+                from: "center",
+                each: 0.3,
+              },
+            },
+          ],
+        },
+        "-=2",
+      );
+    },
+    { scope: container },
+  );
+
   return (
-    <div className="mt-20 flex flex-col items-center md:flex-row">
+    <div className="mt-20 flex flex-col items-center md:flex-row" ref={container}>
       {slice.primary.icons.map((item, index) => (
         <React.Fragment key={index}>
           {index === Math.floor(slice.primary.icons.length / 2) && (
