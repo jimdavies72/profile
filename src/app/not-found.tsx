@@ -33,7 +33,7 @@ export default function NotFound() {
       );
 
       tl.fromTo(".notfound__message", { y: -50 }, 
-        { duration:2, y: 0}, "-=0.9" );
+        { duration:1.5, y: 0}, "-=0.9" );
 
     },
     { scope: container },
@@ -42,15 +42,15 @@ export default function NotFound() {
   return (
     <Bounded>
       <div
-        className="mx-auto flex h-[68vh] flex-col items-center justify-center"
+        className="container mx-auto flex h-[47vh] md:h-[68vh] flex-col items-center justify-center"
         ref={container}
       >
         <div className="notfound__image opacity-0">
           <NotFoundLogo />
         </div>
-        <h1 className="notfound__message text-lg text-[#FFD60A] md:text-xl">
-          The page you are looking for cannot be found
-        </h1>
+        <div className="notfound__message text-md md:text-2xl text-[#FFD60A]">
+          <p>The page you are looking for cannot be found</p>
+        </div>
       </div>
     </Bounded>
   );
