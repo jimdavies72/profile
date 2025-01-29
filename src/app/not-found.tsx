@@ -42,7 +42,7 @@ export default function NotFound() {
   return (
     <Bounded>
       <div
-        className="container mx-auto flex h-[47vh] md:h-[68vh] flex-col items-center justify-center"
+        className="container mx-auto flex h-[65vh] md:h-[65vh] flex-col items-center justify-center"
         ref={container}
       >
         <div className="notfound__image opacity-0">
