@@ -10,7 +10,14 @@ import Bounded from "@/components/Bounded";
 
 const components: JSXMapSerializer = {
   hyperlink: ({ node, children }) => {
-    return <PrismicNextLink className="no-underline cursor-pointer text-yellow-200" field={node.data}>{children}</PrismicNextLink>;
+    return (
+      <PrismicNextLink
+        className="cursor-pointer whitespace-nowrap text-yellow-200 no-underline"
+        field={node.data}
+      >
+        {children}
+      </PrismicNextLink>
+    );
   },
   label: ({ node, children }) => {
     if (node.data.label === "codespan") {
@@ -30,8 +37,11 @@ type RichTextProps = SliceComponentProps<Content.RichTextSlice>;
 const RichText = ({ slice }: RichTextProps): JSX.Element => {
   return (
     <Bounded>
-      <div className="prose prose-invert prose-lg prose-slate">
-        <PrismicRichText field={slice.primary.content} components={components} />
+      <div className="prose prose-lg prose-slate prose-invert">
+        <PrismicRichText
+          field={slice.primary.content}
+          components={components}
+        />
       </div>
     </Bounded>
   );
