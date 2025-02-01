@@ -4,6 +4,7 @@ import {
   PrismicRichText,
   SliceComponentProps,
   JSXMapSerializer,
+  PrismicImage,
 } from "@prismicio/react";
 
 import Bounded from "@/components/Bounded";
@@ -23,6 +24,9 @@ const components: JSXMapSerializer = {
     if (node.data.label === "codespan") {
       return <code>{children}</code>;
     }
+  },
+  image: ({ node, children }) => {
+    return <PrismicImage className="rounded-lg max-w-[778px]" field={node} />;
   },
 };
 
