@@ -890,7 +890,7 @@ export interface LinksListSliceDefaultPrimaryLinksItem {
    * - **API ID Path**: links_list.default.primary.links[].link_type
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  link_type: prismic.SelectField<"image" | "font">;
+  link_type: prismic.SelectField<"image" | "font" | "company">;
 }
 
 /**

@@ -17,11 +17,11 @@ const LinksList = ({ slice }: LinksListProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="prose prose-lg prose-slate prose-invert mt-8">
+      <div className="mt-8">
         {slice.primary.links.map((item) => (
           <div key={item.label}>
             {/* {item.link_type} */}
-            <div className="mb-4">
+            <div className="mb-4 text-lg md:text-xl cursor-pointer whitespace-nowrap text-yellow-200 no-underline">
               <PrismicNextLink field={item.link}>{item.label}</PrismicNextLink>
             </div>
           </div>
