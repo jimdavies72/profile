@@ -111,7 +111,6 @@ const CareerHistory = ({ slice }: CareerHistoryProps): JSX.Element => {
           </div>
         ))}
       </div>
-      {/* <AnimatedContent slice={slice} /> */}
     </Bounded>
   );
 };

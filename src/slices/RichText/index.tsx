@@ -26,7 +26,7 @@ const components: JSXMapSerializer = {
     }
   },
   image: ({ node, children }) => {
-    return <PrismicImage className="rounded-lg max-w-[778px]" field={node} />;
+    return <PrismicImage className="rounded-sm" field={node} />;
   },
 };
 

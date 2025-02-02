@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <StarGrid />
         <h1 className="text-5xl md:text-7xl font-medium">
           <PrismicText field={page.data.heading} />
-          <div className="text-lg text-yellow-500">
+          <div className="text-lg mt-2 text-yellow-500">
             {page.data.article_type}
           </div>
         </h1>
