@@ -34,18 +34,15 @@ export default function AnimatedContent({
           duration: 1,
           scrollTrigger: {
             trigger: container.current,
-            start: "bottom 95%",
+            start: "top 90%",
             toggleActions: "play pause resume reverse",
-            // markers: false,
+            //markers: false,
           },
         },
       );
-
-
     },
     { scope: container },
   );
-
 
   return (
     <div ref={container}>

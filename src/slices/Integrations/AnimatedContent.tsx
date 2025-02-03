@@ -49,13 +49,13 @@ export default function AnimatedContent({
         keyframes: [
           {
             filter: "brightness(2)",
-            opactity: 1,
+            opacity: 1,
             duration: 0.4,
             ease: "power2.in",
           },
           {
             filter: "brightness(1)",
-            opactity: 0.7,
+            opacity: 0.7,
             duration: 0.9,
           },
         ],
