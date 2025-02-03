@@ -22,10 +22,10 @@ View the end product here: TBA
 
 ### To-do List
 
-- [ ] Timeline - Prose on card breaks the styling - FIX
-- [ ] GSAP
+- [X] Timeline - Prose on card breaks the styling - FIX
+- [X] GSAP
 - [ ] Swap Glisten Icon for GitHub on Tech Stack
 - [X] Site Logo
-- [ ] Content
-- [ ] Credits - Formatting on mobile is skew
+- [X] Content
+- [X] Credits - Formatting on mobile is skew
 
