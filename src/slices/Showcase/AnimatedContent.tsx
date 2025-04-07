@@ -28,7 +28,7 @@ export default function AnimatedContent({
         {
           y: 0,
           ease: "power2.inOut",
-          duration: 1,
+          duration: 1.3,
           scrollTrigger: {
             trigger: container.current,
             start: "top bottom-=40%",

@@ -21,14 +21,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     <Bounded as="article">
       <div className="relative grid place-items-center text-center">
         <StarGrid />
-        <h1 className="text-5xl md:text-7xl font-medium">
+        <h1 className="text-5xl font-medium md:text-7xl">
           <PrismicText field={page.data.heading} />
-          <div className="text-lg mt-2 text-yellow-500">
+          <div className="mt-2 text-lg text-yellow-500">
             {page.data.article_type}
           </div>
         </h1>
 
-        <p className="mb-4 mt-8 max-w-xl text-lg text-slate-300">
+        <p className="mb-4 mt-8 max-w-xl text-balance text-center text-lg text-slate-300">
           <PrismicText field={page.data.body} />
         </p>
         <PrismicNextImage
@@ -55,7 +55,7 @@ export async function generateMetadata({
   const page = await client.getByUID("article", uid).catch(() => notFound());
 
   return {
-    title: `${ page.data.meta_title || asText(page.data.heading) + " Article" }`,
+    title: `${page.data.meta_title || asText(page.data.heading) + " Article"}`,
     description: page.data.meta_description,
   };
 }

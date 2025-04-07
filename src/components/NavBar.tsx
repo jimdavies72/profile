@@ -56,14 +56,15 @@ export default function NavBar({ settings }: NavBarProps) {
         >
           <button
             type="button"
-            className="fixed right-4 top-4 mb-4 block p-2 text-3xl text-white md:hidden"
+            className="fixed right-4 top-8 mb-4 block p-2 text-3xl text-white md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
             <MdClose />
             <span className="sr-only">Close Menu</span>
           </button>
-          <div className="grid justify-items-end gap-8">
+
+          <div className="mt-10 grid justify-items-end gap-8">
             {settings.data.navigation.map((item) => {
               if (item.cta_button) {
                 return (
@@ -105,7 +106,7 @@ export default function NavBar({ settings }: NavBarProps) {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="gap-6 hidden md:flex">
+        <ul className="hidden gap-6 md:flex">
           {settings.data.navigation.map((item) => {
             if (item.cta_button) {
               return (
