@@ -10,6 +10,8 @@ A stylish, dark, responsive, content driven website with accessible animations.
 
 View the end product here: TBA
 
+I built this site with help from the following tutorial: [Build a Dark Modern Animated Website with Next.js 14, GSAP, Prismic and TypeScript - Full Course](https://www.youtube.com/watch?v=Cc37uTnbEos&list=PLEJtZcFPvL1hMFSghuSnVqIQAvDwYI4Vg)
+
 ### Project Tech Stack:
 
 - Next.JS
