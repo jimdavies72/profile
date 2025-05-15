@@ -1,5 +1,6 @@
 import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
+// deactivated for now
+//import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
@@ -28,10 +29,10 @@ export default function RootLayout({
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
-      {process.env.GOOGLE_ANALYTICS &&
+      {/* {process.env.GOOGLE_ANALYTICS &&
         process.env.NODE_ENV === "production" && (
           <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS}/>
-        )}
+        )} */}
     </html>
   );
 }
