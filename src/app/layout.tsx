@@ -28,7 +28,10 @@ export default function RootLayout({
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
-      <GoogleAnalytics gaId="G-SKKM8JGMHF" />
+      {process.env.GOOGLE_ANALYTICS &&
+        process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS}/>
+        )}
     </html>
   );
 }
